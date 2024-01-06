@@ -1,0 +1,86 @@
+from tkinter import *
+from PIL import ImageTk, Image
+import mysql.connector as msc
+
+mwo = Tk()
+mwo.title("ThePetFindr")
+mwo.geometry("1600x1200")
+
+img = ImageTk.PhotoImage(Image.open("C:\\Users\\rithi\\Documents\\School_WGS\\comp\\DBMSProj\\wpoption1.jpg"))
+img_label = Label(mwo, image=img)
+img_label.place(x=0, y=0)
+
+msco = msc.connect(host="localhost", user="root", passwd="sqlrootp", database="projxii")
+if msco.is_connected():
+    print("Yes")
+else:
+    print("No")
+
+mscc = msco.cursor()
+
+def psearch():
+
+    mid = eid.get()
+    q2 = "select * from petinfo where pid={}".format(mid)
+    mscc.execute(q2)
+    presult = mscc.fetchall()
+
+    if presult == []:
+        print("No data match.")
+        Label(text="No data match.",font=("book antiqua bold",20), bg="white",fg="black",).place(x=775, y=505)
+    else:
+        for i in presult:
+            oid = i[0]
+            oname = i[1]
+            ob = i[2]
+            odob = i[3]
+            oad = i[4]
+            opno = i[5]
+
+            tid = Label(text=oid, height=2, width=35, font=(
+                "book antiqua bold", 20), bg="palevioletred3", fg="white", relief="raised", bd=3)
+            tn = Label(text=oname, height=2, width=35, font=(
+                "book antiqua bold", 20), bg="palevioletred2", fg="white", relief="raised", bd=3)
+            tb = Label(text=ob, height=2, width=35, font=(
+                "book antiqua bold", 20), bg="palevioletred1", fg="white", relief="raised", bd=3)
+            tdob = Label(text=odob, height=2, width=35, font=(
+                "book antiqua bold", 20), bg="palevioletred1", fg="white", relief="raised", bd=3)
+            tad = Label(text=oad, height=2, width=35, font=(
+                "book antiqua bold", 20), bg="palevioletred2", fg="white", relief="raised", bd=3)
+            tpno = Label(text=opno, height=2, width=35, font=(
+                "book antiqua bold", 20), bg="palevioletred3", fg="white", relief="raised", bd=3)
+
+            tid.place(x=675, y=505)
+            tn.place(x=675, y=585)
+            tb.place(x=675, y=665)
+            tdob.place(x=675, y=745)
+            tad.place(x=675, y=825)
+            tpno.place(x=675, y=905)
+
+lab1 = Label(text="Enter ID", height=1, width=8, bg="skyblue3", fg="white",
+             font=("book antiqua bold", 18), relief="raised", bd=3)
+lab1.place(x=428, y=413)
+
+eid = Entry(font=("book antiqua bold", 25))
+eid.place(x=578, y=410)
+
+s = Button(mwo, text="Search ", command=psearch, font=("book antiqua bold", 18), height=1,
+           width=10, fg="white", bg="goldenrod2", relief="ridge", bd=5, activebackground="skyblue3")
+s.place(x=973, y=404)
+
+
+lid = Label(text="ID", height=2, width=20, font=("book antiqua bold", 20), bg="hotpink3", fg="white", relief="raised", bd=3)
+ln = Label(text="Name", height=2, width=20, font=("book antiqua bold", 20), bg="hotpink2", fg="white", relief="raised", bd=3)
+lb = Label(text="Breed", height=2, width=20, font=("book antiqua bold", 20), bg="hotpink1", fg="white", relief="raised", bd=3)
+ldob = Label(text="Date of Birth", height=2, width=20, font=("book antiqua bold", 20), bg="hotpink1", fg="white", relief="raised", bd=3)
+lad = Label(text="Address", height=2, width=20, font=("book antiqua bold", 20), bg="hotpink2", fg="white", relief="raised", bd=3)
+lpno = Label(text="Phone no.", height=2, width=20, font=("book antiqua bold", 20), bg="hotpink3", fg="white", relief="raised", bd=3)
+
+lid.place(x=275, y=505)
+ln.place(x=275, y=585)
+lb.place(x=275, y=665)
+ldob.place(x=275, y=745)
+lad.place(x=275, y=825)
+lpno.place(x=275, y=905)
+
+mwo.mainloop()

@@ -1,0 +1,282 @@
+import java.util.*;
+class Project
+{
+    public static void main()
+    {
+       Scanner gn= new Scanner(System.in);
+       Project pj = new Project();
+       int r1=1,r2=6;
+       int num;
+       int g;
+       
+       System.out.println("Enter your name: ");
+       String name=gn.nextLine();
+       
+       System.out.println("Enter maximum number of levels: ");
+       int max=gn.nextInt();
+       
+       
+        for(int i=1; i<=max; i++, r1=r1+1, r2= r1*6)
+        { //for the 5 levels
+            System.out.println("****");
+            System.out.println(" LEVEL "+i+" ");
+            System.out.println();
+            num=(int) (Math.random()*(r2-r1))+r1;
+            
+            
+            for(int j=1; j<=3; j++)
+            { //for the 3 guesses
+                System.out.println("Enter your guess between "+r1+" and "+r2);
+                g = gn.nextInt();
+                
+                               
+                if (g==num)
+                {
+                    System.out.println("Hooray "+name+" !! You guessed it !");
+                    if(i==max)
+                    {
+                        //print trophy 
+                        for (int t= 0; t<= 7 ; t++)
+                        {
+                            for (int r=0; r<t; r++)
+                             { 
+                                  System.out.print(" ");
+                             }
+                            for (int o=t; o<=7; o++) 
+                            {
+                              System.out.print("W" + " ");
+                            } 
+                            System.out.println("");
+                        } 
+                        for (int q=0; q<=2; q++)
+                        {
+                          System.out.println("       I     ");
+                        }
+                        for (int p= 5; p>= 0; p--)
+                        {
+                           for (int h=0; h< p ; h++)
+                           {
+                               System.out.print(" ");
+                           }
+                           for (int y=p; y<=5; y++)
+                           {
+                              if (y==p)
+                              {
+                                System.out.print("  ");
+                              }
+                              System.out.print("N" + " ");
+                           }
+                           System.out.println("");
+                        }   
+                        System.out.println(" YAY! YOU WON!");
+                    }
+                    break;
+                }
+                else if (g>num && (g>r2 ||g<r1))
+                {
+                    System.out.println("Guess is out of range.");                    
+                }
+                
+                else if(g>num)
+                {
+                    if (j<2)
+                    {
+                        System.out.println("You still have 2 more chances. Think lower");                       
+                        if ( num % 2 == 0 )
+                           System.out.println("Number is even");
+                        else
+                            System.out.println("Number is odd"); 
+                            
+                        int counter=0;
+      
+                        //loop to find number of factors of n
+                        for(int k=1; k<=num; k++)
+                        {
+                                if(num%k==0)
+                                {
+                                     counter++;
+                                 }
+                        }
+      
+                        //check factors
+                       if(counter==2)
+                        {
+                            System.out.println("It's a prime number.");
+                        }
+                         else if(counter==1)
+                        {
+                           System.out.println("It's neither composite nor prime.");
+                        }
+                         else
+                        {
+                            System.out.println("It's a composite number.");
+                        }
+                    }
+                    else if(j==2)
+                    {
+                        System.out.println("You have 1 more chance. Think lower.");
+                        int m=pj.emirp(num);
+                        if (m==1)
+                        {
+                            System.out.println("It's an emirp number.");
+                            System.out.println("An emirp (prime spelled backwards) is a prime number that results in a different prime when its digits are reversed.");
+                        }
+                        else 
+                        {
+                            System.out.println("It's not an emirp number.");
+                        }
+                        
+                        int n=pj.palindrome(num);
+                        if (n==1)
+                        {
+                            System.out.println("It's a palindrome.");
+                            System.out.println("A palindrome number is a number that remians the same after reversing its digits."); 
+                        }
+                        else 
+                        {
+                            System.out.println("It's not a palindrome.");
+                        }
+                    }
+                    else if (j>2) 
+                    {
+                        System.out.println("Wrong guess. The answer was "+num);
+                        System.exit(0);
+                    }
+                }
+                else if (g<num && (g>r2 || g<r1))
+                {
+                    System.out.println("Guess is out of range.");
+                }
+                else if (g<num)
+                {
+                    if (j<2)
+                    {
+                        System.out.println("You still have 2 more chances. Think higher");
+                        if ( num % 2 == 0 )
+                           System.out.println("Number is even");
+                        else
+                            System.out.println("Number is odd");
+                            
+                        //loop to find number of factors of n
+                        int count=0;
+                        for(int k=1; k<=num; k++)
+                        {
+                                if(num%k==0)
+                                {
+                                     count++;
+                                 }
+                        }
+      
+                        //check factors
+                        if(count==2)
+                        {
+                            System.out.println("It's a prime number.");
+                        }
+                        else if (count==1)
+                       {
+                           System.out.println("It's neither prime nor composite.");
+                        }
+      
+                        else
+                        {
+                            System.out.println("It's a composite number.");
+                        }
+                    }
+                    else if(j==2)
+                    {
+                        System.out.println("You have 1 more chance. Think higher.");
+                        int m=pj.emirp(num);
+                        if (m==1)
+                        {
+                            System.out.println("It's an emirp number.");
+                            System.out.println("An emirp (prime spelled backwards) is a prime number that results in a different    prime when its digits are reversed.");
+                        }
+                        else 
+                        {
+                            System.out.println("It's not an emirp number.");
+                        }
+                        
+                        int n=pj.palindrome(num);
+                        if (n==1)
+                        {
+                            System.out.println("It's a palindrome.");
+                            System.out.println("A palindrome number is a number that remians the same after reversing its digits."); 
+                        }
+                        else 
+                        {
+                            System.out.println("It's not a palindrome.");
+                        }
+                    }
+                    else if(j>2)
+                    {
+                        System.out.println("Wrong guess. The answer was "+num);
+                        System.exit(0);
+                    }
+                }              
+            }       
+        }
+    }
+    public static int emirp(int num2)
+    {
+         int counting=0;
+      
+         //loop to find number of factors of n
+          for(int a=1; a<=num2; a++)
+          {
+               if(num2%a==0)
+               {
+                    counting++;
+                }
+           }
+         int emp, revnum, temp, digit;
+          if (counting==2)
+          {   
+                do{
+                       revnum=0;
+                       temp=num2;
+                       digit=temp%10;  
+                       temp=temp/10;
+                       revnum= revnum*10+temp;
+                    }
+                while (temp!=0);
+                if (revnum==num2)
+                {
+                     emp=1;
+                }
+                else
+                {
+                     emp=0;
+                }
+           }
+           else
+          {
+              emp=0;
+          }
+         return emp;
+    }
+    public int palindrome(int numb)
+    {
+        int x;
+        int revnumb=0;
+        int tempu=0, savednum;
+        savednum=numb;
+
+        //reverse the number
+        do{
+            tempu=numb%10;  
+            numb=numb/10;
+            revnumb= revnumb*10+tempu;
+        }
+        while (numb!=0);
+        if (revnumb==savednum)
+        {
+           x=1;
+        }
+        else
+        {
+           x=0;
+        }
+           
+        return x;
+    }
+}
