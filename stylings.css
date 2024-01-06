@@ -193,3 +193,11 @@ h1{
 p{
     font-size: 20px;
 }
+.embd{
+    font-family: 'Lora';
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 20px;
+    cursor:grab;
+}
+
