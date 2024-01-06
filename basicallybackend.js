@@ -85,4 +85,5 @@ function resetForm(){
     nameerr.textContent = '';
     phoneerr.textContent = '';
     emailerr.textContent = '';
+    printm.textContent = '';
 }
