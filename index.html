@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;400&family=Libre+Baskerville&family=Lora&family=Rubik+Doodle+Shadow&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Portfolio - A Rithika Vinod Production</title>
+
+    <link href="stylings.css" rel="stylesheet" />
+    <script src="basicallybackend.js"></script>
+</head>
+
+<body id="homescreen">
+
+    <div class="nav" id="navbar">
+        <a href="#homescreen" class="left">Home</a>
+        <a href="#myForm" class="right">Contact</a>
+        <a href="#projs" class="right">Projects</a>
+        <a href="#cnw" class="right">Clubs and Workshops</a>
+        <a href="#skills" class="right">Skills</a>
+        <a href="#edu" class="right">Education</a>
+        <a href="#about" class="right">About Me</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="material-icons">menu</i></a>
+    </div>
+<section>
+            <header class="frontpage">
+                <div id="heading"> My Portfolio</div>
+                <a class="btn" href="#about">Learn More</a>
+        </header>
+</section>
+<br><br><br><br>
+<section id="about">
+    <br><br><br><br>
+    <h1>Rithika Vinod</h1>
+
+    <section id="photo">
+        <img src="https://th.bing.com/th/id/OIP.oCA_jjKPrQT5uRJZnR5H9AHaHa?pid=ImgDet&rs=1" width="125" height="125"
+            alt="RithikaV" />
+    </section>
+
+    <p>Email: rithikav.btech23@rvu.edu.in</p>
+    <p>Phone: +91 80733 *****</p>
+
+<br>
+<h1>Summary</h1>
+<p>I'm a first-semester engineering student at RVU, eager to delve into the world of technology and innovation. Passionate
+about problem-solving and learning, I bring a curious and determined mindset to my studies. Excited to collaborate,
+grow, and contribute to the vibrant academic community at RVU.</p>
+
+</section><br>
+
+<section id="edu">
+    <br><br><br><br>
+
+    <h1>Education</h1>
+    <br>
+    <table id="edutable">
+        <tr>
+            <th>Institutions</th>
+            <th>Education</th>
+            <th>Passed Out</th>
+        </tr>
+        <tr>
+            <td>
+                <p> RV University </p>
+                
+            </td>
+            <td>
+                <p> &nbsp;B. Tech (Hons) &nbsp;</p>
+            </td>
+            <td>
+                <p> &nbsp;Expected: May 2028 &nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p> &nbsp; Whitefield Global School&nbsp; </p>
+                
+            </td>
+            <td>
+                <p> 12 [CBSE]</p>
+            </td>
+            <td>
+                <p> April 2023 </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>&nbsp; Ryan International School &nbsp; </p>
+                
+            </td>
+            <td>
+                <p> 10 [ICSE]</p>
+            </td>
+            <td>
+                <p> April 2021 </p>
+            </td>
+        </tr>
+    </table>
+    <br>
+</section>
+
+<section id="skills">
+    <br><br><br><br>
+    <h1>Skills</h1>
+    <p>Programming - Java, Python, C</p>
+    <p>Development - HTML, CSS, JavaScript</p>
+    <p>Database Management - SQL</p>
+</section><br>
+
+<section id="cnw">
+    <br><br><br><br>
+    <h1>Clubs and Workshops</h1>
+    <p>Certificate of Appreciation for "Capture the Flag"
+        contest (30 September 2023)</p>
+    <p>Won Second place in "RVU Mini CTF" (11 October 2023)
+    </p>
+    <p>Certificate of Appreciation for successfully
+        completing Git & GitHub Workshop (25 October 2023) </p>
+    <p>Certificate of Participation for Ethical Hacking Workshop (17th November 2023)</p>
+</section><br>
+
+<section id="projs">
+    <br><br><br><br>
+    <h1>Projects</h1>
+    <p>"Riddle Me Number" Game using Java</p>
+    <p>"Mini Arcade" using Python</p>
+    <p>"PetFindr" using mysql and Python</p>
+</section>
+<br>
+<br>
+<br>
+
+<br>
+<hr>
+<br>
+<br>
+<footer>
+
+<form id="myForm">
+    <fieldset>
+        <legend>Contact Me</legend><br>
+
+            <input class="fele" type="text" id="name" placeholder="Your name" data-sb-validations="required">
+            <span id="nameerr" class="error"></span><br>
+            <input class="fele" type="tel" id="phone" placeholder="Your Phone number" data-sb-validations="">
+            <span id="phoneerr" class="error"></span><br>
+            <input class="fele" type="email" id="email" placeholder="Your Email ID" data-sb-validations="required">
+            <span id="emailerr" class="error"></span><br>
+        
+        <button type="button" class="subbtn" onclick="submitForm()">Submit</button>
+        <input type="reset" class="subbtn" name="Reset" onclick="resetForm()">
+        <p id="printm"></p>
+
+    </fieldset>
+</form>
+<br><br>
+    <article id="info">
+       <div> &copy; Copyright 2023 Rithika Vinod </div>
+        <div> For more information: rithikav.05@gmail.com</div>
+    </article>
+</footer>
+
+</body>
+
+</html>
+
